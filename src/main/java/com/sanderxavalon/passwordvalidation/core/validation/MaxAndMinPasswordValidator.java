@@ -4,8 +4,8 @@ import com.sanderxavalon.passwordvalidation.core.common.exception.SystemExceptio
 import com.sanderxavalon.passwordvalidation.core.common.response.StatusEnum;
 import com.sanderxavalon.passwordvalidation.core.config.Observer;
 import com.sanderxavalon.passwordvalidation.core.common.exception.ValidationException;
-import com.sanderxavalon.passwordvalidation.entity.Config;
-import com.sanderxavalon.passwordvalidation.service.ConfigService;
+import com.sanderxavalon.passwordvalidation.core.config.entity.Config;
+import com.sanderxavalon.passwordvalidation.core.config.ConfigService;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 

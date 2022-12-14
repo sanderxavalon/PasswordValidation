@@ -1,4 +1,4 @@
-package com.sanderxavalon.passwordvalidation.entity;
+package com.sanderxavalon.passwordvalidation.core.config.entity;
 
 import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;

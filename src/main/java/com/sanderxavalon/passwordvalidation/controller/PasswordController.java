@@ -1,11 +1,9 @@
 package com.sanderxavalon.passwordvalidation.controller;
 
 import com.sanderxavalon.passwordvalidation.core.common.response.Result;
-import com.sanderxavalon.passwordvalidation.core.validation.PasswordValidator;
-import com.sanderxavalon.passwordvalidation.entity.Config;
-import com.sanderxavalon.passwordvalidation.service.ConfigService;
+import com.sanderxavalon.passwordvalidation.core.config.entity.Config;
+import com.sanderxavalon.passwordvalidation.core.config.ConfigService;
 import com.sanderxavalon.passwordvalidation.service.PasswordValidationService;
-import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,7 +1,7 @@
 package com.sanderxavalon.passwordvalidation.core.validation;
 
 import com.sanderxavalon.passwordvalidation.core.common.exception.ValidationException;
-import com.sanderxavalon.passwordvalidation.entity.Config;
+import com.sanderxavalon.passwordvalidation.core.config.entity.Config;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

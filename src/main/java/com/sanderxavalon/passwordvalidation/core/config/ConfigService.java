@@ -1,11 +1,8 @@
-package com.sanderxavalon.passwordvalidation.service;
+package com.sanderxavalon.passwordvalidation.core.config;
 
 import com.sanderxavalon.passwordvalidation.core.common.response.StatusEnum;
-import com.sanderxavalon.passwordvalidation.core.config.Observer;
-import com.sanderxavalon.passwordvalidation.core.config.Subject;
 import com.sanderxavalon.passwordvalidation.core.common.exception.SystemException;
-import com.sanderxavalon.passwordvalidation.entity.Config;
-import com.sanderxavalon.passwordvalidation.repository.ConfigRepository;
+import com.sanderxavalon.passwordvalidation.core.config.entity.Config;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
