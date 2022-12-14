@@ -1,7 +1,8 @@
 package com.sanderxavalon.passwordvalidation.core.validation;
 
+import com.sanderxavalon.passwordvalidation.core.common.response.StatusEnum;
 import com.sanderxavalon.passwordvalidation.core.config.Observer;
-import com.sanderxavalon.passwordvalidation.core.exception.ValidationException;
+import com.sanderxavalon.passwordvalidation.core.common.exception.ValidationException;
 import com.sanderxavalon.passwordvalidation.entity.Config;
 import com.sanderxavalon.passwordvalidation.service.ConfigService;
 import org.springframework.core.annotation.Order;
@@ -31,13 +32,13 @@ public class MaxAndMinPasswordValidator extends PasswordValidator implements Obs
 
     private void checkMinLength(String password) {
         if (password.length() < this.passwordMinLength ) {
-            throw new ValidationException("Password is shorter than requirement");
+            throw new ValidationException(StatusEnum.PASSWORD_IS_LESS_THAN_MIN_REQUIRE);
         }
     }
 
     private void checkMaxLength(String password) {
         if (password.length() > this.passwordMaxLength ) {
-            throw new ValidationException("Password is longer than requirement");
+            throw new ValidationException(StatusEnum.PASSWORD_IS_MORE_THAN_MAX_REQUIRE);
         }
     }
 }

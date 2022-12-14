@@ -1,6 +1,6 @@
 package com.sanderxavalon.passwordvalidation.core.validation;
 
-import com.sanderxavalon.passwordvalidation.core.exception.ValidationException;
+import com.sanderxavalon.passwordvalidation.core.common.exception.ValidationException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

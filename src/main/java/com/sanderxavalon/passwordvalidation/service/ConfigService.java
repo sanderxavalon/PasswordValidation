@@ -1,13 +1,11 @@
 package com.sanderxavalon.passwordvalidation.service;
 
+import com.sanderxavalon.passwordvalidation.core.common.response.StatusEnum;
 import com.sanderxavalon.passwordvalidation.core.config.Observer;
 import com.sanderxavalon.passwordvalidation.core.config.Subject;
-import com.sanderxavalon.passwordvalidation.core.exception.SystemException;
-import com.sanderxavalon.passwordvalidation.core.exception.ValidationException;
+import com.sanderxavalon.passwordvalidation.core.common.exception.SystemException;
 import com.sanderxavalon.passwordvalidation.entity.Config;
 import com.sanderxavalon.passwordvalidation.repository.ConfigRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
@@ -49,7 +47,7 @@ public class ConfigService implements Subject {
         return configs.stream()
                 .filter(config -> config.getConfigKey().equals(configKey))
                 .findAny()
-                .orElseThrow(() -> new SystemException("No Default Value found : " + configKey))
+                .orElseThrow(() -> new SystemException(StatusEnum.SYSTEM_NO_DEFAULT_VALUE_FOUND))
                 .getConfigValue();
     }
 }

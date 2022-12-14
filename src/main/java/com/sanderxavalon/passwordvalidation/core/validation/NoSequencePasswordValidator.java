@@ -1,6 +1,7 @@
 package com.sanderxavalon.passwordvalidation.core.validation;
 
-import com.sanderxavalon.passwordvalidation.core.exception.ValidationException;
+import com.sanderxavalon.passwordvalidation.core.common.exception.ValidationException;
+import com.sanderxavalon.passwordvalidation.core.common.response.StatusEnum;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
@@ -33,7 +34,7 @@ public class NoSequencePasswordValidator extends PasswordValidator{
                 String compareBlock = password.substring(compareBlockUpperIndex, compareBlockLowerIndex);
 
                 if (fetchBlock.equals(compareBlock)) {
-                    throw new ValidationException("Password can't contains same sequence immediately.");
+                    throw new ValidationException(StatusEnum.PASSWORD_MUST_NOT_CONTAIN_A_SEQUENCE_LETTER_FOLLOW_BY_ANY_SAME_SEQUENCE);
                 }
                 movedStep++;
             }
