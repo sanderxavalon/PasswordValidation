@@ -2,15 +2,20 @@ package com.sanderxavalon.passwordvalidation.core.validation;
 
 import com.sanderxavalon.passwordvalidation.core.common.exception.ValidationException;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
 public class NoSequencePasswordValidatorTest {
 
-    @Autowired
     NoSequencePasswordValidator noSequencePasswordValidator;
+
+    @BeforeEach
+    void setup(){
+        noSequencePasswordValidator = new NoSequencePasswordValidator();
+        noSequencePasswordValidator.setNext(new NoOpsValidator());
+    }
 
     @Test
     void regular_password() {
