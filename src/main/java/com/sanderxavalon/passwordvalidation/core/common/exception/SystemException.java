@@ -7,7 +7,7 @@ public class SystemException extends RuntimeException{
     private StatusEnum statusEnum;
 
     public SystemException(StatusEnum statusEnum){
-        super();
+        super(statusEnum.getMessage());
         this.statusEnum = statusEnum;
     }
 
@@ -26,5 +26,12 @@ public class SystemException extends RuntimeException{
 
     public void setStatusEnum(StatusEnum statusEnum) {
         this.statusEnum = statusEnum;
+    }
+
+    @Override
+    public String toString() {
+        return "SystemException{" +
+                "statusEnum=" + statusEnum +
+                '}';
     }
 }

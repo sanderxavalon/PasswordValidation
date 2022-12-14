@@ -15,11 +15,17 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(ValidationException.class)
     public Result handleValidationException(ValidationException validationException){
-        logger.info(validationException.toString());
+        logger.warn(validationException.toString());
         if (validationException.isMessageExist()){
             return new Result(validationException.getStatusEnum(), validationException.getMessage());
         }
         return new Result(validationException.getStatusEnum());
+    }
+
+    @ExceptionHandler(SystemException.class)
+    public Result handleSystemException(SystemException systemException){
+        logger.error(systemException.toString());
+        return new Result(systemException.getStatusEnum());
     }
 
     @ExceptionHandler(Exception.class)

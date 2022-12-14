@@ -28,4 +28,11 @@ public class ValidationException extends RuntimeException {
     public void setStatusEnum(StatusEnum statusEnum) {
         this.statusEnum = statusEnum;
     }
+
+    @Override
+    public String toString() {
+        return "ValidationException{" +
+                "statusEnum=" + statusEnum +
+                '}';
+    }
 }
