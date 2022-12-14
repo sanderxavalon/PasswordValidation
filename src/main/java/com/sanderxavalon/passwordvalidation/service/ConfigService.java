@@ -50,4 +50,13 @@ public class ConfigService implements Subject {
                 .orElseThrow(() -> new SystemException(StatusEnum.SYSTEM_NO_DEFAULT_VALUE_FOUND))
                 .getConfigValue();
     }
+
+    public void updateConfigs(List<Config> configs) {
+        configRepository.saveAll(configs);
+        this.notifyAllObserver();
+    }
+
+    public List<Config> getAllConfigs() {
+        return configRepository.findAll();
+    }
 }

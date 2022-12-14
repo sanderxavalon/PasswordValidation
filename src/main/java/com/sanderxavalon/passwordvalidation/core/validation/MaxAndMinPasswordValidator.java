@@ -1,5 +1,6 @@
 package com.sanderxavalon.passwordvalidation.core.validation;
 
+import com.sanderxavalon.passwordvalidation.core.common.exception.SystemException;
 import com.sanderxavalon.passwordvalidation.core.common.response.StatusEnum;
 import com.sanderxavalon.passwordvalidation.core.config.Observer;
 import com.sanderxavalon.passwordvalidation.core.common.exception.ValidationException;
@@ -26,8 +27,17 @@ public class MaxAndMinPasswordValidator extends PasswordValidator implements Obs
 
     @Override
     public void update(List<Config> configs) {
-        this.passwordMinLength = ConfigService.getConfigValue(configs, "passwordMinLength");
-        this.passwordMaxLength = ConfigService.getConfigValue(configs, "passwordMaxLength");
+
+        Integer passwordMinLength = ConfigService.getConfigValue(configs, "passwordMinLength");
+        Integer passwordMaxLength = ConfigService.getConfigValue(configs, "passwordMaxLength");
+
+        if (passwordMinLength > passwordMaxLength) {
+            throw new SystemException(StatusEnum.SYSTEM_MIN_IS_MORE_THAN_MAX);
+        }
+
+        this.passwordMinLength = passwordMinLength;
+        this.passwordMaxLength = passwordMaxLength;
+
     }
 
     private void checkMinLength(String password) {
