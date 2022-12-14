@@ -33,4 +33,20 @@ public class NoSequencePasswordValidatorTest {
         });
     }
 
+    @Test
+    void repeat_internal_3_words() {
+        String password = "DEFABCABCGHI";
+        Assertions.assertThrows(ValidationException.class, () -> {
+            noSequencePasswordValidator.check(password);
+        });
+    }
+
+    @Test
+    void repeat_last_3_words() {
+        String password = "DEFGHIABCABC";
+        Assertions.assertThrows(ValidationException.class, () -> {
+            noSequencePasswordValidator.check(password);
+        });
+    }
+
 }
