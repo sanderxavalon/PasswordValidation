@@ -44,7 +44,7 @@ public class ConfigService implements Subject {
     }
 
     public static Integer getConfigValue(List<Config> configs, String configKey) {
-        return configs.stream()
+            return configs.stream()
                 .filter(config -> config.getConfigKey().equals(configKey))
                 .findAny()
                 .orElseThrow(() -> new SystemException(StatusEnum.SYSTEM_NO_DEFAULT_VALUE_FOUND))

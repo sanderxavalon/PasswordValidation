@@ -8,7 +8,7 @@ public class ValidationException extends RuntimeException {
     private StatusEnum statusEnum;
 
     public ValidationException(StatusEnum statusEnum){
-        super();
+        super(statusEnum.getMessage());
         this.statusEnum = statusEnum;
     }
 

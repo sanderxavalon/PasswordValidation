@@ -13,12 +13,6 @@ public class GlobalExceptionHandler {
 
     Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
-    @ExceptionHandler(Exception.class)
-    public Result handleException(Exception exception){
-        logger.error(exception.toString());
-        return new Result(StatusEnum.ERROR, exception.getMessage());
-    }
-
     @ExceptionHandler(ValidationException.class)
     public Result handleValidationException(ValidationException validationException){
         logger.info(validationException.toString());
@@ -28,4 +22,9 @@ public class GlobalExceptionHandler {
         return new Result(validationException.getStatusEnum());
     }
 
+    @ExceptionHandler(Exception.class)
+    public Result handleAllException(Exception exception){
+        logger.error(exception.toString());
+        return new Result(StatusEnum.ERROR, exception.getMessage());
+    }
 }

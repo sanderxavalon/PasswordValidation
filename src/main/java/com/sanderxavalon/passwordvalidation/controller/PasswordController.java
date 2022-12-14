@@ -1,4 +1,4 @@
-package com.sanderxavalon.passwordvalidation.core.controller;
+package com.sanderxavalon.passwordvalidation.controller;
 
 import com.sanderxavalon.passwordvalidation.core.validation.PasswordValidator;
 import com.sanderxavalon.passwordvalidation.entity.Config;
@@ -34,7 +34,7 @@ public class PasswordController {
     public String passwordValidation(@RequestBody Map<String, String> parameter) {
 
         String password = parameter.get("password");
-
+        System.out.println(password);
         passwordValidationService.validatePassword(password);
 
         return null;
