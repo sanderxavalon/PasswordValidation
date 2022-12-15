@@ -1,13 +1,24 @@
 package com.sanderxavalon.passwordvalidation.service;
 
 import com.sanderxavalon.passwordvalidation.core.common.exception.ValidationException;
+import com.sanderxavalon.passwordvalidation.core.config.ConfigRepository;
+import com.sanderxavalon.passwordvalidation.core.config.entity.Config;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.stereotype.Service;
+import org.springframework.test.context.TestPropertySource;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootTest
+@TestPropertySource("/application.properties")
 public class PasswordValidationServiceTest {
 
     @Autowired
